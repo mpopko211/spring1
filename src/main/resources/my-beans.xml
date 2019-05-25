@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+    <bean id="message" class="pl.sda.Message" scope="prototype">
+        <property name="text" value="Wartość startowa"/>
+    </bean>
+    <bean id="student1" class="pl.sda.Student">
+        <property name="firstName" value="Monika"/>
+    </bean>
+    <bean id="author" class="pl.sda.Author">
+        <property name="name" value="Albert"/>
+        <property name="lastName" value="Dupa"/>
+    </bean>
+    <bean id="book" class="pl.sda.Book">
+        <property name="author" ref="author"/>
+        <property name="title" value="AAAA"/>
+    </bean>
+    <bean id="adres" class="pl.sda.Adres">
+        <property name="postalCode" value="12-343"/>
+        <property name="city" value="Warsaw"/>
+        <property name="street" value="Długa"/>
+    </bean>
+    <bean id="person" class="pl.sda.Person">
+        <constructor-arg ref="adres"/>
+    </bean>
+
+<context:annotation-config/>
+
+        <!--    <bean id="message1" class="pl.sda.Message"  >-->
+        <!--        <property name="text" value="Wpisz wartość" />-->
+        <!--    </bean>-->
+        <!--    <bean id="message1" class="pl.sda.Message" >-->
+        <!--        <property name="text" value="Hello2"/>-->
+        <!--    </bean>-->
+        <!--    <bean id="value" class="pl.sda.ExtraMessage">-->
+        <!--        <property name="value" value="Hello value!"/>-->
+        <!--    </bean>-->
+        <!--    <bean id="message3" class="pl.sda.Message" init-method="init">-->
+        <!--        <property name="text" value="Hello3"/>-->
+        <!--    </bean>-->
+        <!--    <bean id="message4" class="pl.sda.Message" destroy-method="destroy">-->
+        <!--        <property name="text" value="Hello Destroy !!!"/>-->
+        <!--    </bean>-->
+
+        </beans>
